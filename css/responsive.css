@@ -1,0 +1,71 @@
+/* ===========================================
+   responsive utility
+=========================================== */
+
+/* Large Device */
+
+@media (max-width: 1200px) {
+
+    .container{
+        width: min(92%, var(--container-width));
+    }
+
+}
+
+/* Laptop */
+
+@media (max-width: 992px) {
+
+    .container{
+        width: 90%;
+    }
+
+}
+
+/* Tablet */
+
+@media (max-width: 768px) {
+
+    .container{
+        width: 92%;
+    }
+
+    .section-title{
+        font-size: var(--fs-h2);
+    }
+
+    .section-subtitle{
+        font-size: var(--fs-sm);
+        margin-bottom: 3rem;
+    }
+
+}
+
+/* Mobile */
+
+@media (max-width: 576px) {
+
+    .container{
+        width: 94%;
+    }
+
+    .section{
+        padding: 60px 0;
+    }
+
+    .btn{
+        width: 100%;
+        justify-content: center;
+    }
+
+}
+
+/* Small Mobile */
+
+@media (max-width: 400px){
+
+    .container{
+        width:95%;
+    }
+
+}

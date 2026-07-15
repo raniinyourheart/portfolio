@@ -1,0 +1,252 @@
+/* ===========================================
+   Transition
+=========================================== */
+
+.fade{
+    opacity: 0;
+    transition: all .8s ease;
+}
+
+.fade.show{
+    opacity: 1;
+}
+
+.fade-up{
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all .8s ease;
+}
+
+.fade-up.show{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-down{
+    opacity: 0;
+    transform: translateY(-40px);
+    transition: all .8s ease;
+}
+
+.fade-down.show{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-left{
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: all .8s ease;
+}
+
+.fade-left.show{
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-right{
+    opacity: 0;
+    transform: translateX(40px);
+    transition: all .8s ease;
+}
+
+.fade-right.show{
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.zoom-in{
+    opacity: 0;
+    transform: scale(.8);
+    transition: all .7s ease;
+}
+
+.zoom-in.show{
+    opacity: 1;
+    transform: scale(1);
+}
+/* ===========================================
+   Hover
+=========================================== */
+
+.hover-up{
+    transition: var(--transition);
+}
+
+.hover-up:hover{
+    transform: translateY(-8px);
+}
+
+.hover-scale{
+    transition: var(--transition);
+}
+
+.hover-scale:hover{
+    transform: scale(1.05);
+}
+
+.hover-rotate{
+    transition: var(--transition);
+}
+
+.hover-rotate:hover{
+    transform: rotate(5deg);
+}
+/* ===========================================
+   Floating
+=========================================== */
+
+.floating{
+    animation: floating 4s ease-in-out infinite;
+}
+
+@keyframes floating{
+
+    0%{
+        transform: translateY(0);
+    }
+
+    50%{
+        transform: translateY(-12px);
+    }
+
+    100%{
+        transform: translateY(0);
+    }
+
+}
+/* ===========================================
+   Pulse
+=========================================== */
+
+.pulse{
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse{
+
+    0%{
+        transform: scale(1);
+    }
+
+    50%{
+        transform: scale(1.05);
+    }
+
+    100%{
+        transform: scale(1);
+    }
+
+}
+/* ===========================================
+   Spin
+=========================================== */
+
+.spin{
+    animation: spin 12s linear infinite;
+}
+
+@keyframes spin{
+
+    from{
+        transform: rotate(0deg);
+    }
+
+    to{
+        transform: rotate(360deg);
+    }
+
+}
+/* ===========================================
+   Shimmer
+=========================================== */
+
+.shimmer{
+    position: relative;
+    overflow: hidden;
+}
+
+.shimmer::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-100%;
+
+    width:100%;
+    height:100%;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255,255,255,.4),
+            transparent
+        );
+
+    animation: shimmer 2s infinite;
+
+}
+
+@keyframes shimmer{
+
+    to{
+        left:100%;
+    }
+
+}
+/* ===========================================
+   Bounce
+=========================================== */
+
+.bounce{
+
+    animation:bounce 1.8s infinite;
+
+}
+
+@keyframes bounce{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+}
+/* ===========================================
+   Blink
+=========================================== */
+
+.blink{
+    animation: blink 1s infinite;
+}
+
+@keyframes blink{
+
+    50%{
+        opacity:0;
+    }
+
+}
+/* ===========================================
+   Loader
+=========================================== */
+
+.loader{
+
+    animation: loader 1s linear infinite;
+
+}
+
+@keyframes loader{
+
+    to{
+        transform: rotate(360deg);
+    }
+
+}
