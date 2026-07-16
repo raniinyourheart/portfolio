@@ -1,148 +1,70 @@
-/* ===========================================
-   Navbar
-=========================================== */
+/*===================================
+NAVBAR
+===================================*/
 
-header{
-    position: fixed;
-    top: 0;
-    left: 0;
+.header{
 
-    width: 100%;
+    position:fixed;
 
-    z-index: 999;
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    z-index:1000;
+
+    transition:.35s ease;
+
+    background:transparent;
+
 }
+
+.header.scrolled{
+
+    background:rgba(255,255,255,.75);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border-bottom:1px solid var(--border-color);
+
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
+
+}
+
+[data-theme="dark"] .header.scrolled{
+
+    background:rgba(10,15,30,.78);
+
+}
+
+/*===================================
+NAVBAR
+===================================*/
 
 .navbar{
 
-    height: var(--navbar-height);
+    height:var(--navbar-height);
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display:flex;
 
-    transition: var(--transition);
+    justify-content:space-between;
 
-}
-
-.navbar.scrolled{
-
-    background: rgba(255,255,255,.75);
-
-    backdrop-filter: blur(18px);
-
-    -webkit-backdrop-filter: blur(18px);
-
-    box-shadow: var(--shadow-sm);
+    align-items:center;
 
 }
 
-[data-theme="dark"] .navbar.scrolled{
-
-    background: rgba(2,6,23,.75);
-
-}
-
-/* ===========================================
-   Logo
-=========================================== */
+/*===================================
+LOGO
+===================================*/
 
 .logo{
 
-    font-size: 1.6rem;
+    width:56px;
 
-    font-weight: var(--fw-extra);
-
-    color: var(--primary-color);
-
-    letter-spacing: 1px;
-
-}
-
-/* ===========================================
-   Menu
-=========================================== */
-
-.nav-menu{
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 2rem;
-
-}
-
-.nav-link{
-
-    position: relative;
-
-    color: var(--text-color);
-
-    font-weight: var(--fw-medium);
-
-    transition: var(--transition);
-
-}
-
-.nav-link:hover{
-
-    color: var(--primary-color);
-
-}
-
-.nav-link.active{
-
-    color: var(--primary-color);
-
-}
-
-/* underline */
-
-.nav-link::after{
-
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    bottom: -6px;
-
-    width: 0;
-
-    height: 2px;
-
-    background: var(--primary-color);
-
-    transition: var(--transition);
-
-}
-
-.nav-link:hover::after,
-
-.nav-link.active::after{
-
-    width: 100%;
-
-}
-
-/* ===========================================
-   Right Side
-=========================================== */
-
-.nav-actions{
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 1rem;
-
-}
-.theme-toggle{
-
-    width: 46px;
-
-    height: 46px;
+    height:56px;
 
     display:flex;
 
@@ -150,92 +72,352 @@ header{
 
     align-items:center;
 
-    border-radius:50%;
+    border-radius:18px;
 
-    background: var(--surface-color);
+    background:linear-gradient(
+        135deg,
+        var(--primary-color),
+        var(--primary-light)
+    );
+
+    color:#fff;
+
+    font-size:1.25rem;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 12px 30px rgba(37,99,235,.25);
+
+    transition:.35s ease;
+
+}
+
+.logo::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:120%;
+
+    height:100%;
+
+    background:linear-gradient(
+
+        120deg,
+
+        transparent,
+
+        rgba(255,255,255,.7),
+
+        transparent
+
+    );
+
+    left:-130%;
+
+    top:0;
+
+}
+
+.logo:hover{
+
+    transform:translateY(-4px) scale(1.05);
+
+    box-shadow:
+    0 18px 40px rgba(37,99,235,.4);
+
+}
+
+.logo:hover::before{
+
+    animation:shine .8s ease;
+
+}
+
+/*===================================
+MENU
+===================================*/
+
+.nav-menu{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:2rem;
+
+}
+
+.nav-link{
+
+    position:relative;
+
+    font-weight:500;
+
+    color:var(--text-color);
+
+    transition:.3s;
+
+}
+
+.nav-link:hover{
+
+    color:var(--primary-color);
+
+}
+
+.nav-link.active{
+
+    color:var(--primary-color);
+
+}
+
+.nav-link::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-8px;
+
+    width:0;
+
+    height:2px;
+
+    border-radius:999px;
+
+    background:var(--primary-color);
+
+    transition:.35s;
+
+}
+
+.nav-link:hover::after,
+
+.nav-link.active::after{
+
+    width:100%;
+
+}
+
+/*===================================
+RIGHT
+===================================*/
+
+.nav-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:1rem;
+
+}
+
+/*===================================
+THEME
+===================================*/
+
+.theme-toggle{
+
+    width:46px;
+
+    height:46px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border:none;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    background:var(--surface-color);
 
     border:1px solid var(--border-color);
 
-    transition:var(--transition);
+    color:var(--heading-color);
+
+    font-size:1rem;
+
+    transition:.35s ease;
 
 }
 
 .theme-toggle:hover{
 
-    transform: rotate(180deg);
+    transform:translateY(-3px);
 
-    background: var(--primary-color);
+    color:var(--primary-color);
 
-    color:white;
+    border-color:var(--primary-color);
 
 }
+
+/*===================================
+HAMBURGER
+===================================*/
+
 .hamburger{
+
+    width:48px;
+
+    height:48px;
 
     display:none;
 
+    justify-content:center;
+
+    align-items:center;
+
     flex-direction:column;
 
-    gap:5px;
+    gap:6px;
+
+    border:none;
 
     cursor:pointer;
+
+    border-radius:14px;
+
+    background:var(--surface-color);
+
+    border:1px solid var(--border-color);
+
+    transition:.35s;
 
 }
 
 .hamburger span{
 
-    width:26px;
+    width:22px;
 
-    height:3px;
+    height:2px;
 
-    border-radius:100px;
+    background:var(--heading-color);
 
-    background:var(--text-color);
+    transition:.35s;
 
-    transition:.4s;
+    border-radius:999px;
 
 }
+
+.hamburger.active span:nth-child(1){
+
+    transform:translateY(8px) rotate(45deg);
+
+}
+
+.hamburger.active span:nth-child(2){
+
+    opacity:0;
+
+}
+
+.hamburger.active span:nth-child(3){
+
+    transform:translateY(-8px) rotate(-45deg);
+
+}
+
+/*===================================
+RESPONSIVE
+===================================*/
+
+@media(max-width:992px){
+
+    .nav-menu{
+
+        position:fixed;
+
+        top:var(--navbar-height);
+
+        right:-100%;
+
+        width:320px;
+
+        height:calc(100vh - var(--navbar-height));
+
+        background:var(--background-color);
+
+        display:flex;
+
+        flex-direction:column;
+
+        justify-content:flex-start;
+
+        align-items:flex-start;
+
+        padding:3rem 2rem;
+
+        gap:2rem;
+
+        transition:.4s ease;
+
+        border-left:1px solid var(--border-color);
+
+        box-shadow:-10px 0 30px rgba(0,0,0,.08);
+
+    }
+
+    .nav-menu.show{
+
+        right:0;
+
+    }
+
+    .hamburger{
+
+        display:flex;
+
+    }
+
+}
+
 @media(max-width:768px){
 
-.nav-menu{
+    .logo{
 
-    position:fixed;
+        width:50px;
 
-    top:var(--navbar-height);
+        height:50px;
 
-    right:-100%;
+        font-size:1.1rem;
 
-    width:280px;
+    }
 
-    height:100vh;
+    .theme-toggle,
 
-    background:var(--surface-color);
+    .hamburger{
 
-    display:flex;
+        width:44px;
 
-    flex-direction:column;
+        height:44px;
 
-    justify-content:flex-start;
-
-    align-items:flex-start;
-
-    padding:2rem;
-
-    transition:.4s;
-
-    box-shadow:var(--shadow-lg);
+    }
 
 }
 
-.nav-menu.active{
+@media(max-width:480px){
 
-    right:0;
+    .nav-menu{
 
-}
+        width:100%;
 
-.hamburger{
-
-    display:flex;
-
-}
+    }
 
 }

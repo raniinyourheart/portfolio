@@ -1,0 +1,433 @@
+/*===================================
+CERTIFICATES SECTION
+===================================*/
+
+.certificates{
+
+    position: relative;
+
+    padding: 8rem 0;
+
+    overflow: hidden;
+
+}
+
+/*===================================
+SECTION HEADER
+===================================*/
+
+.certificates-header{
+
+    text-align: center;
+
+    margin-bottom: 5rem;
+
+}
+
+.certificates-subtitle{
+
+    display: inline-block;
+
+    color: var(--primary-color);
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    margin-bottom: .8rem;
+
+}
+
+.certificates-title{
+
+    font-size: clamp(2.2rem,5vw,3rem);
+
+    margin-bottom: 1rem;
+
+    color: var(--heading-color);
+
+}
+
+.certificates-description{
+
+    max-width: 700px;
+
+    margin: auto;
+
+    color: var(--text-light);
+
+    line-height: 1.8;
+
+}
+
+/*===================================
+TIMELINE
+===================================*/
+
+.timeline{
+
+    position: relative;
+
+    max-width: 1000px;
+
+    margin: auto;
+
+    padding: 2rem 0;
+
+}
+
+.timeline::before{
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 0;
+
+    transform: translateX(-50%);
+
+    width: 4px;
+
+    height: 100%;
+
+    background: linear-gradient(
+
+        to bottom,
+
+        var(--primary-color),
+
+        var(--primary-light)
+
+    );
+
+    border-radius: 999px;
+
+}
+
+/*===================================
+ITEM
+===================================*/
+
+.timeline-item{
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 4rem;
+
+}
+
+.timeline-item:last-child{
+
+    margin-bottom: 0;
+
+}
+
+/*===================================
+LEFT
+===================================*/
+
+.timeline-item.left{
+
+    flex-direction: row;
+
+}
+
+/*===================================
+RIGHT
+===================================*/
+
+.timeline-item.right{
+
+    flex-direction: row-reverse;
+
+}
+
+/*===================================
+CARD
+===================================*/
+
+.timeline-card{
+
+    width: 44%;
+
+    background: var(--surface-color);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 22px;
+
+    padding: 1.5rem;
+
+    transition: .35s;
+
+    box-shadow:
+
+        0 15px 35px rgba(0,0,0,.06);
+
+}
+
+.timeline-card:hover{
+
+    transform: translateY(-8px);
+
+    box-shadow:
+
+        0 25px 45px rgba(0,0,0,.12);
+
+}
+
+.timeline-card h3{
+
+    margin-bottom: .6rem;
+
+    color: var(--heading-color);
+
+}
+
+.timeline-card h4{
+
+    margin-bottom: .8rem;
+
+    color: var(--primary-color);
+
+    font-size: .95rem;
+
+}
+
+.timeline-card p{
+
+    color: var(--text-light);
+
+    line-height: 1.8;
+
+    font-size: .95rem;
+
+}
+
+/*===================================
+DOT
+===================================*/
+
+.timeline-dot{
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 25px;
+
+    transform: translateX(-50%);
+
+    width: 22px;
+
+    height: 22px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    border: 5px solid var(--primary-color);
+
+    box-shadow:
+
+        0 0 20px rgba(59,130,246,.35);
+
+    z-index: 10;
+
+}
+
+/*===================================
+YEAR
+===================================*/
+
+.timeline-year{
+
+    display: inline-block;
+
+    margin-bottom: 1rem;
+
+    padding: .4rem .9rem;
+
+    border-radius: 999px;
+
+    background: rgba(59,130,246,.12);
+
+    color: var(--primary-color);
+
+    font-size: .85rem;
+
+    font-weight: 700;
+
+}
+
+/*===================================
+ICON
+===================================*/
+
+.timeline-icon{
+
+    width: 55px;
+
+    height: 55px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 16px;
+
+    margin-bottom: 1rem;
+
+    background: linear-gradient(
+
+        135deg,
+
+        var(--primary-color),
+
+        var(--primary-light)
+
+    );
+
+    color: white;
+
+    font-size: 1.3rem;
+
+}
+
+/*===================================
+GLOW
+===================================*/
+
+.certificates::before{
+
+    content: "";
+
+    position: absolute;
+
+    width: 320px;
+
+    height: 320px;
+
+    border-radius: 50%;
+
+    background: rgba(59,130,246,.08);
+
+    filter: blur(120px);
+
+    top: -100px;
+
+    left: -100px;
+
+    z-index: -1;
+
+}
+
+.certificates::after{
+
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+
+    height: 300px;
+
+    border-radius: 50%;
+
+    background: rgba(37,99,235,.06);
+
+    filter: blur(120px);
+
+    right: -100px;
+
+    bottom: -100px;
+
+    z-index: -1;
+
+}
+
+/*===================================
+RESPONSIVE
+===================================*/
+
+@media(max-width:992px){
+
+    .timeline::before{
+
+        left: 30px;
+
+    }
+
+    .timeline-item{
+
+        flex-direction: row !important;
+
+        justify-content: flex-start;
+
+        padding-left: 80px;
+
+    }
+
+    .timeline-card{
+
+        width: 100%;
+
+    }
+
+    .timeline-dot{
+
+        left: 30px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .certificates{
+
+        padding: 6rem 0;
+
+    }
+
+    .timeline-card{
+
+        padding: 1.2rem;
+
+    }
+
+    .certificates-title{
+
+        font-size: 2rem;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .timeline-card h3{
+
+        font-size: 1rem;
+
+    }
+
+    .timeline-card p{
+
+        font-size: .9rem;
+
+    }
+
+}

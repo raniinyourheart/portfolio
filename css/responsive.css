@@ -1,71 +1,351 @@
-/* ===========================================
-   responsive utility
-=========================================== */
+/*===================================
+LAPTOP
+===================================*/
 
-/* Large Device */
-
-@media (max-width: 1200px) {
+@media (max-width:1200px){
 
     .container{
-        width: min(92%, var(--container-width));
+
+        width:90%;
+
     }
 
 }
 
-/* Laptop */
+/*===================================
+TABLET
+===================================*/
 
-@media (max-width: 992px) {
+@media (max-width:992px){
+
+    section{
+
+        padding:6rem 0;
+
+    }
 
     .container{
-        width: 90%;
+
+        width:92%;
+
+    }
+
+    .navbar{
+
+        height:75px;
+
+    }
+
+    .hero{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+        gap:4rem;
+
+    }
+
+    .hero-buttons{
+
+        justify-content:center;
+
+    }
+
+    .hero-code{
+
+        max-width:650px;
+
+        margin:auto;
+
+    }
+
+    .about-grid{
+
+        grid-template-columns:1fr;
+
+        gap:3rem;
+
+    }
+
+    .skills-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .projects-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .certificates-timeline{
+
+        margin-left:20px;
+
+    }
+
+    .scholarship-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .contact-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .writer-items{
+
+        grid-template-columns:repeat(2,1fr);
+
     }
 
 }
 
-/* Tablet */
+/*===================================
+MOBILE
+===================================*/
 
-@media (max-width: 768px) {
+@media (max-width:768px){
+
+    html{
+
+        font-size:95%;
+
+    }
+
+    .navbar{
+
+        height:70px;
+
+    }
+
+    .nav-menu{
+
+        position:fixed;
+
+        top:70px;
+
+        right:-100%;
+
+        width:260px;
+
+        height:calc(100vh - 70px);
+
+        background:var(--surface-color);
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        padding:2rem;
+
+        transition:.35s;
+
+        box-shadow:var(--shadow-lg);
+
+        z-index:999;
+
+    }
+
+    .nav-menu.show{
+
+        right:0;
+
+    }
+
+    .hamburger{
+
+        display:flex;
+
+    }
+
+    .hero{
+
+        min-height:100vh;
+
+    }
+
+    .hero-title{
+
+        font-size:3rem;
+
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+
+        width:100%;
+
+    }
+
+    .hero-buttons a{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+    .about-grid,
+
+    .skills-grid,
+
+    .projects-grid,
+
+    .scholarship-grid,
+
+    .contact-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .projects-grid{
+
+        gap:2rem;
+
+    }
+
+    .project-card{
+
+        height:auto;
+
+    }
+
+    .writer-horizontal{
+
+        display:none;
+
+    }
+
+    .writer-root-line{
+
+        display:none;
+
+    }
+
+    .writer-items{
+
+        grid-template-columns:1fr;
+
+        margin-top:2rem;
+
+    }
+
+    .writer-branch{
+
+        display:none;
+
+    }
+
+    .footer-content{
+
+        flex-direction:column;
+
+        text-align:center;
+
+        gap:2rem;
+
+    }
+
+}
+
+/*===================================
+SMALL MOBILE
+===================================*/
+
+@media (max-width:480px){
+
+    html{
+
+        font-size:90%;
+
+    }
 
     .container{
-        width: 92%;
+
+        width:94%;
+
+    }
+
+    .hero-title{
+
+        font-size:2.4rem;
+
+    }
+
+    .hero-subtitle{
+
+        font-size:1rem;
+
+    }
+
+    .hero-description{
+
+        font-size:.95rem;
+
     }
 
     .section-title{
-        font-size: var(--fs-h2);
+
+        font-size:2rem;
+
     }
 
-    .section-subtitle{
-        font-size: var(--fs-sm);
-        margin-bottom: 3rem;
+    .card,
+
+    .about-card,
+
+    .skill-card,
+
+    .project-card,
+
+    .writer-card,
+
+    .scholarship-card,
+
+    .contact-card{
+
+        border-radius:18px;
+
+    }
+
+    .project-buttons{
+
+        flex-direction:column;
+
+    }
+
+    .contact-form{
+
+        padding:1.5rem;
+
+    }
+
+    .footer{
+
+        padding:2rem 0;
+
     }
 
 }
 
-/* Mobile */
+/*===================================
+LARGE SCREEN
+===================================*/
 
-@media (max-width: 576px) {
-
-    .container{
-        width: 94%;
-    }
-
-    .section{
-        padding: 60px 0;
-    }
-
-    .btn{
-        width: 100%;
-        justify-content: center;
-    }
-
-}
-
-/* Small Mobile */
-
-@media (max-width: 400px){
+@media (min-width:1440px){
 
     .container{
-        width:95%;
+
+        max-width:1300px;
+
     }
 
 }
