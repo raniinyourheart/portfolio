@@ -1,62 +1,47 @@
-const hamburger = document.getElementById("hamburger");
-const navMenu = document.getElementById("nav-menu");
+/*===================================
+NAVBAR COMPONENT
+===================================*/
 
-hamburger.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-});
-// ==========================================
-// NAVBAR
-// ==========================================
+class Navbar {
 
-document.addEventListener("DOMContentLoaded", () => {
+    constructor() {
 
-    const hamburger = document.getElementById("hamburger");
-    const navMenu = document.getElementById("nav-menu");
-    const navLinks = document.querySelectorAll(".nav-link");
-    const header = document.getElementById("header");
+        this.header = document.getElementById("header");
 
-    // ==========================
-    // Mobile Menu
-    // ==========================
+        if (!this.header) return;
 
-    hamburger.addEventListener("click", () => {
+        this.init();
 
-        navMenu.classList.toggle("active");
-        hamburger.classList.toggle("active");
+    }
 
-    });
+    init() {
 
-    // ==========================
-    // Close menu ketika klik link
-    // ==========================
+        window.addEventListener(
 
-    navLinks.forEach(link => {
+            "scroll",
 
-        link.addEventListener("click", () => {
+            () => this.handleScroll()
 
-            navMenu.classList.remove("active");
-            hamburger.classList.remove("active");
+        );
 
-        });
+    }
 
-    });
+    handleScroll() {
 
-    // ==========================
-    // Navbar Shadow ketika scroll
-    // ==========================
+        if (window.scrollY > 50) {
 
-    window.addEventListener("scroll", () => {
-
-        if(window.scrollY > 50){
-
-            header.classList.add("scrolled");
-
-        }else{
-
-            header.classList.remove("scrolled");
+            this.header.classList.add("scrolled");
 
         }
 
-    });
+        else {
 
-});
+            this.header.classList.remove("scrolled");
+
+        }
+
+    }
+
+}
+
+export default Navbar;
