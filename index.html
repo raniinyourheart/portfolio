@@ -1,111 +1,110 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
-
+<html lang="id">
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
-    <meta
-        name="description"
-        content="Portfolio of Lintang Maharani - Informatics Engineering Student and Web Developer.">
-
-    <meta
-        name="keywords"
-        content="Portfolio, Web Developer, Frontend, Software Engineer, Informatics">
-
-    <meta
-        name="author"
-        content="Lintang Maharani">
-
-    <title>
-
-        Lintang Maharani | Portfolio
-
-    </title>
-
-    <!--==================== CSS ====================-->
-
-    <link
-        rel="stylesheet"
-        href="./css/style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lintang Maharani</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/home.css">
 </head>
-
 <body>
+  <!-- Include Navbar -->
+  <div id="navbar-placeholder"></div>
 
-    <!--==================== HEADER ====================-->
+  <!-- Background -->
+  <div class="noise"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <canvas id="bg-canvas"></canvas>
 
-    <header
-        id="header"
-        class="header">
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="hero-grid-line"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Hello, World 👾</div>
+      <h1 class="hero-title">
+        <span class="name-line">Lintang</span>
+        <span class="name-line">Maharani</span>
+      </h1>
+      <div class="hero-role">
+        <span id="typed-role"></span>
+        <span class="role-tag">Mahasiswa IT</span>
+      </div>
+      <p class="hero-desc">Merancang pengalaman digital yang intuitif dan membangun solusi bermakna — satu baris kode pada satu waktu.</p>
+      <div class="hero-cta">
+        <a href="projects.html" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+          Lihat Project
+        </a>
+        <a href="contact.html" class="btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Hubungi Saya
+        </a>
+      </div>
+    </div>
 
-    </header>
+    <!-- Code Block -->
+    <div class="hero-visual" id="codeWrapper">
+      <div class="hero-code-block" id="codeInner">
+        <div class="code-dot-bar">
+          <div class="code-dot"></div>
+          <div class="code-dot"></div>
+          <div class="code-dot"></div>
+        </div>
+        <div><span class="c-keyword">const</span> <span class="c-fn">developer</span> = {</div>
+        <div>&nbsp;&nbsp;name: <span class="c-str">"Lintang Maharani"</span>,</div>
+        <div>&nbsp;&nbsp;role: <span class="c-str">"Developer"</span>,</div>
+        <div>&nbsp;&nbsp;exp: <span class="c-num">3</span> + <span class="c-str">" years"</span>,</div>
+        <div>&nbsp;&nbsp;stack: [</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-str">"React"</span>,</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-str">"Node.js"</span>,</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-str">"PostgreSQL"</span>,</div>
+        <div>&nbsp;&nbsp;],</div>
+        <div>&nbsp;&nbsp;<span class="c-fn">hire</span>: () =&gt; <span class="c-str">"Yes! 🚀"</span>,</div>
+        <div>};</div>
+        <div>&nbsp;</div>
+        <div><span class="c-comment">// Currently: Open to work</span></div>
+        <div><span class="c-fn">developer</span>.<span class="c-fn">hire</span>();</div>
+        <div>&nbsp;</div>
+        <div><span class="c-comment">// → "Yes! 🚀"</span></div>
+      </div>
+    </div>
+  </section>
 
-    <!--==================== MAIN ====================-->
+  <!-- Stats Band -->
+  <div class="stats-band" id="statsBand">
+    <div class="stat-item">
+      <div class="stat-num" data-target="4">0</div>
+      <div class="stat-label">Major Projects</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="4">0</div>
+      <div class="stat-label">PBL Projects</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="4">0</div>
+      <div class="stat-label">Tech Stacks</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="100">0</div>
+      <div class="stat-label">Personal Build %</div>
+    </div>
+  </div>
 
-    <main>
+  <!-- Tulisan Berjalan -->
+  <div id="marquee-placeholder"></div>
 
-        <section
-            id="hero">
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
 
-        </section>
-
-        <section
-            id="about">
-
-        </section>
-
-        <section
-            id="skills">
-
-        </section>
-
-        <section
-            id="projects">
-
-        </section>
-
-        <section
-            id="writer">
-
-        </section>
-
-        <section
-            id="certificates">
-
-        </section>
-
-        <section
-            id="scholarship">
-
-        </section>
-
-        <section
-            id="contact">
-
-        </section>
-
-    </main>
-
-    <!--==================== FOOTER ====================-->
-
-    <footer
-        id="footer">
-
-    </footer>
-
-    <!--==================== JAVASCRIPT ====================-->
-
-    <script
-        type="module"
-        src="./js/main.js">
-
-    </script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="js/background.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/home.js"></script>
+  <script src="js/main.js"></script>
 </body>
-
 </html>
