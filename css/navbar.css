@@ -1,0 +1,193 @@
+/* =========================
+   NAVBAR
+========================= */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:999;
+    background:rgba(5,13,26,.9);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(0,255,235,.08);
+    transition:.3s;
+}
+
+.nav-container{
+    max-width:1400px;
+    margin:auto;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px 40px;
+}
+
+nav.scrolled .nav-container{
+    padding:12px 40px;
+}
+
+/* logo */
+
+.nav-logo{
+    color:#00FFEB;
+    text-decoration:none;
+    font-size:1.4rem;
+    font-weight:800;
+    flex-shrink:0;
+}
+
+.nav-logo span{
+    color:#A8C0D6;
+}
+
+/* menu */
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:28px;
+    list-style:none;
+}
+
+.nav-links li{
+    list-style:none;
+}
+
+.nav-links a{
+
+    color:#A8C0D6;
+    text-decoration:none;
+    font-size:.82rem;
+    font-weight:600;
+    text-transform:uppercase;
+    position:relative;
+    transition:.3s;
+    white-space:nowrap;
+
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+
+    color:#00FFEB;
+
+}
+
+.nav-links a::after{
+
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:0;
+    height:2px;
+    background:#00FFEB;
+    transition:.3s;
+
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after{
+
+    width:100%;
+
+}
+
+/* hamburger */
+
+.hamburger{
+
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    cursor:pointer;
+
+}
+
+.hamburger span{
+
+    width:26px;
+    height:2px;
+    background:#00FFEB;
+    transition:.3s;
+
+}
+
+.hamburger.active span:nth-child(1){
+
+    transform:translateY(7px) rotate(45deg);
+
+}
+
+.hamburger.active span:nth-child(2){
+
+    opacity:0;
+
+}
+
+.hamburger.active span:nth-child(3){
+
+    transform:translateY(-7px) rotate(-45deg);
+
+}
+
+/* responsive */
+
+@media(max-width:992px){
+
+    .nav-container{
+
+        padding:18px 25px;
+
+    }
+
+    .hamburger{
+
+        display:flex;
+
+    }
+
+    .nav-links{
+
+        position:absolute;
+        top:100%;
+        left:0;
+        width:100%;
+
+        display:none;
+        flex-direction:column;
+
+        background:#050D1A;
+
+        padding:30px;
+
+        gap:22px;
+
+    }
+
+    .nav-links.open{
+
+        display:flex;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .nav-container{
+
+        padding:16px 18px;
+
+    }
+
+    .nav-logo{
+
+        font-size:1.2rem;
+
+    }
+
+}

@@ -1,0 +1,50 @@
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  #hero {
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 2rem;
+    gap: 3rem;
+  }
+  .hero-visual {
+    min-width: unset;
+    width: 100%;
+    max-width: 420px;
+  }
+  .hero-content { 
+    max-width: 100%; 
+  }
+}
+
+@media (max-width: 480px) {
+  #hero { 
+    padding: 2rem 1.5rem; 
+  }
+  
+  .hero-cta { 
+    flex-direction: column; 
+  }
+  
+  .btn-primary, .btn-outline { 
+    width: 100%; 
+    justify-content: center; 
+  }
+  
+  .hero-visual { 
+    max-width: 100%; 
+  }
+  
+  .hero-code-block { 
+    font-size: 0.5rem; 
+    padding: 0.8rem; 
+  }
+  
+  .hero-code-block .code-dot-bar { 
+    margin-bottom: 0.4rem; 
+  }
+  
+  .code-dot { 
+    width: 6px; 
+    height: 6px; 
+  }
+}

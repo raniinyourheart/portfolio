@@ -1,0 +1,16 @@
+:root {
+  --navy-deep: #050D1A;
+  --navy-1: #0A192F;
+  --navy-2: #0B2B4A;
+  --navy-3: #0F3B5C;
+  --cyan: #00FFEB;
+  --cyan-dim: #00CCBB;
+  --silver: #A8C0D6;
+  --silver-dim: #6A8FA8;
+  --white: #E8F4F8;
+  --glass: rgba(11,43,74,0.55);
+  --glass-border: rgba(0,255,235,0.12);
+  --font-display: 'Syne', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  --font-body: 'DM Sans', sans-serif;
+}
