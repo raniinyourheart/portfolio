@@ -1,0 +1,95 @@
+/* ===== MARQUEE / TULISAN BERJALAN ===== */
+.marquee-container {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(0, 255, 235, 0.1);
+  border-bottom: 1px solid rgba(0, 255, 235, 0.1);
+  background: rgba(10, 25, 47, 0.6);
+  backdrop-filter: blur(8px);
+  z-index: 1;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 2.5rem;
+  animation: marqueeScroll 18s linear infinite;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--silver-dim);
+  width: max-content;
+}
+
+.marquee-track span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.marquee-track .dot-sep {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cyan);
+  opacity: 0.4;
+  flex-shrink: 0;
+}
+
+.marquee-track .highlight {
+  color: var(--cyan);
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .marquee-container {
+    padding: 1rem 0;
+  }
+  
+  .marquee-track {
+    font-size: 0.6rem;
+    gap: 1.5rem;
+  }
+  
+  .marquee-track .dot-sep {
+    width: 4px;
+    height: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .marquee-container {
+    padding: 0.8rem 0;
+  }
+  
+  .marquee-track {
+    font-size: 0.5rem;
+    gap: 1rem;
+  }
+  
+  .marquee-track .dot-sep {
+    width: 3px;
+    height: 3px;
+  }
+}

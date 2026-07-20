@@ -1,114 +1,157 @@
-// ======= THREE.JS BACKGROUND =======
-const canvas = document.getElementById('bg-canvas');
-const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setClearColor(0x000000, 0);
+// ====== THREE.JS BACKGROUND ======
+(function initBackground() {
+    console.log('🔄 Starting Background...');
+    
+    const canvas = document.getElementById('bg-canvas');
+    if (!canvas) {
+        console.error('❌ Canvas #bg-canvas tidak ditemukan!');
+        return;
+    }
 
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera.position.z = 28;
+    // Cek apakah THREE tersedia
+    if (typeof THREE === 'undefined') {
+        console.error('❌ THREE.js tidak ditemukan! Pastikan library di-load.');
+        return;
+    }
 
-// Particles
-const pCount = 220;
-const pos = new Float32Array(pCount * 3);
-const col = new Float32Array(pCount * 3);
-for (let i = 0; i < pCount; i++) {
-  const th = Math.random() * Math.PI * 2, 
-        ph = Math.acos(2 * Math.random() - 1), 
-        r = 12 + Math.random() * 20;
-  pos[i * 3] = r * Math.sin(ph) * Math.cos(th);
-  pos[i * 3 + 1] = r * Math.sin(ph) * Math.sin(th);
-  pos[i * 3 + 2] = r * Math.cos(ph);
-  const c = Math.random() > 0.35;
-  col[i * 3] = c ? 0 : 0.67;
-  col[i * 3 + 1] = c ? 1 : 0.75;
-  col[i * 3 + 2] = c ? 0.92 : 0.84;
-}
+    console.log('✅ THREE.js ditemukan!');
 
-const pGeo = new THREE.BufferGeometry();
-pGeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-pGeo.setAttribute('color', new THREE.BufferAttribute(col, 3));
+    const renderer = new THREE.WebGLRenderer({ 
+        canvas, 
+        antialias: true, 
+        alpha: true 
+    });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor(0x000000, 0);
 
-const pMat = new THREE.PointsMaterial({ 
-  size: 0.15, 
-  vertexColors: true, 
-  transparent: true, 
-  opacity: 0.7, 
-  sizeAttenuation: true 
-});
-const particles = new THREE.Points(pGeo, pMat);
-scene.add(particles);
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 28;
 
-// Wireframe Objects
-const wMat = new THREE.MeshBasicMaterial({ 
-  color: 0x00FFEB, 
-  wireframe: true, 
-  transparent: true, 
-  opacity: 0.06 
-});
-const objs = [];
+    // ===== PARTICLE SYSTEM =====
+    const particleCount = 220;
+    const positions = new Float32Array(particleCount * 3);
+    const colors = new Float32Array(particleCount * 3);
 
-[
-  [new THREE.IcosahedronGeometry(5, 1), [14, 6, -10], 0.003, 0.005],
-  [new THREE.OctahedronGeometry(3.5), [-15, -5, -8], 0.006, 0.003],
-  [new THREE.TorusGeometry(4, 1.2, 12, 48), [-5, 8, -15], 0.004, 0.006],
-  [new THREE.TetrahedronGeometry(3), [10, -8, -5], 0.007, 0.004]
-].forEach(([geo, p, rx, ry]) => {
-  const m = new THREE.Mesh(geo, wMat.clone());
-  m.position.set(...p);
-  scene.add(m);
-  objs.push({ mesh: m, rx, ry });
-});
+    for (let i = 0; i < particleCount; i++) {
+        const theta = Math.random() * Math.PI * 2;
+        const phi = Math.acos(2 * Math.random() - 1);
+        const r = 12 + Math.random() * 20;
+        positions[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+        positions[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+        positions[i * 3 + 2] = r * Math.cos(phi);
+        
+        const isCyan = Math.random() > 0.35;
+        colors[i * 3] = isCyan ? 0 : 0.67;
+        colors[i * 3 + 1] = isCyan ? 1 : 0.75;
+        colors[i * 3 + 2] = isCyan ? 0.92 : 0.84;
+    }
 
-// Lines
-const lMat = new THREE.LineBasicMaterial({ 
-  color: 0x00CCBB, 
-  transparent: true, 
-  opacity: 0.07 
-});
-const lPts = [];
-for (let i = 0; i < 60; i++) {
-  const a = Math.floor(Math.random() * pCount) * 3, 
-        b = Math.floor(Math.random() * pCount) * 3;
-  lPts.push(pos[a], pos[a+1], pos[a+2], pos[b], pos[b+1], pos[b+2]);
-}
-const lGeo = new THREE.BufferGeometry();
-lGeo.setAttribute('position', new THREE.Float32BufferAttribute(lPts, 3));
-scene.add(new THREE.LineSegments(lGeo, lMat));
+    const particleGeo = new THREE.BufferGeometry();
+    particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    particleGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
-// Mouse tracking
-let mX = 0, mY = 0, t = 0;
-document.addEventListener('mousemove', e => {
-  mX = (e.clientX / window.innerWidth - 0.5) * 2;
-  mY = -(e.clientY / window.innerHeight - 0.5) * 2;
-});
+    const particleMat = new THREE.PointsMaterial({
+        size: 0.15,
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.7,
+        sizeAttenuation: true
+    });
+    const particles = new THREE.Points(particleGeo, particleMat);
+    scene.add(particles);
 
-// Animation loop
-const animate = () => {
-  t += 0.008;
-  requestAnimationFrame(animate);
-  
-  particles.rotation.y += 0.0008 + mX * 0.0003;
-  particles.rotation.x += 0.0004 + mY * 0.0003;
-  
-  objs.forEach(({ mesh, rx, ry }) => {
-    mesh.rotation.x += rx;
-    mesh.rotation.y += ry;
-    mesh.position.y += Math.sin(t + mesh.position.x) * 0.005;
-  });
-  
-  camera.position.x += (mX * 2 - camera.position.x) * 0.02;
-  camera.position.y += (mY * 1.5 - camera.position.y) * 0.02;
-  camera.lookAt(scene.position);
-  
-  renderer.render(scene, camera);
-};
-animate();
+    // ===== WIREFRAME OBJECTS =====
+    const wireMat = new THREE.MeshBasicMaterial({
+        color: 0x00FFEB,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.06
+    });
+    const objects = [];
 
-// Resize handler
-window.addEventListener('resize', () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-});
+    const icosaGeo = new THREE.IcosahedronGeometry(5, 1);
+    const icosa = new THREE.Mesh(icosaGeo, wireMat.clone());
+    icosa.position.set(14, 6, -10);
+    scene.add(icosa);
+    objects.push({ mesh: icosa, rx: 0.003, ry: 0.005 });
+
+    const octaGeo = new THREE.OctahedronGeometry(3.5);
+    const octa = new THREE.Mesh(octaGeo, wireMat.clone());
+    octa.position.set(-15, -5, -8);
+    scene.add(octa);
+    objects.push({ mesh: octa, rx: 0.006, ry: 0.003 });
+
+    const torusGeo = new THREE.TorusGeometry(4, 1.2, 12, 48);
+    const torus = new THREE.Mesh(torusGeo, wireMat.clone());
+    torus.position.set(-5, 8, -15);
+    scene.add(torus);
+    objects.push({ mesh: torus, rx: 0.004, ry: 0.006 });
+
+    const tetraGeo = new THREE.TetrahedronGeometry(3);
+    const tetra = new THREE.Mesh(tetraGeo, wireMat.clone());
+    tetra.position.set(10, -8, -5);
+    scene.add(tetra);
+    objects.push({ mesh: tetra, rx: 0.007, ry: 0.004 });
+
+    // ===== CONNECTION LINES =====
+    const linesMat = new THREE.LineBasicMaterial({
+        color: 0x00CCBB,
+        transparent: true,
+        opacity: 0.07
+    });
+    const linesGeo = new THREE.BufferGeometry();
+    const linePoints = [];
+    for (let i = 0; i < 60; i++) {
+        const a = Math.floor(Math.random() * particleCount) * 3;
+        const b = Math.floor(Math.random() * particleCount) * 3;
+        linePoints.push(positions[a], positions[a + 1], positions[a + 2]);
+        linePoints.push(positions[b], positions[b + 1], positions[b + 2]);
+    }
+    linesGeo.setAttribute('position', new THREE.Float32BufferAttribute(linePoints, 3));
+    const lines = new THREE.LineSegments(linesGeo, linesMat);
+    scene.add(lines);
+
+    // ===== MOUSE INTERACTION =====
+    let mouseX = 0, mouseY = 0;
+    document.addEventListener('mousemove', e => {
+        mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+        mouseY = -(e.clientY / window.innerHeight - 0.5) * 2;
+    });
+
+    // ===== ANIMATION LOOP =====
+    let time = 0;
+    const animate = () => {
+        time += 0.008;
+        requestAnimationFrame(animate);
+
+        particles.rotation.y += 0.0008 + mouseX * 0.0003;
+        particles.rotation.x += 0.0004 + mouseY * 0.0003;
+
+        for (const { mesh, rx, ry } of objects) {
+            mesh.rotation.x += rx;
+            mesh.rotation.y += ry;
+            mesh.position.y += Math.sin(time + mesh.position.x) * 0.005;
+        }
+
+        lines.rotation.y = particles.rotation.y;
+        lines.rotation.x = particles.rotation.x;
+
+        camera.position.x += (mouseX * 2 - camera.position.x) * 0.02;
+        camera.position.y += (mouseY * 1.5 - camera.position.y) * 0.02;
+        camera.lookAt(scene.position);
+
+        renderer.render(scene, camera);
+    };
+    animate();
+
+    // ===== RESIZE HANDLER =====
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    console.log('✅ 3D Background initialized!');
+})();

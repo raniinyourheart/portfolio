@@ -1,0 +1,305 @@
+/* ===== PROJECTS SECTION ===== */
+.projects-section {
+  max-width: 1200px;
+  width: 100%;
+  padding: 60px 20px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--cyan);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.section-label::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--cyan);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 2.5rem;
+  color: var(--white);
+}
+
+.section-title span {
+  color: var(--cyan);
+}
+
+/* ===== PROJECT LIST ===== */
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+/* ===== PROJECT ITEM ===== */
+.project-item {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: center;
+  gap: 0;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.project-item:nth-child(1) { animation-delay: 0.1s; }
+.project-item:nth-child(2) { animation-delay: 0.2s; }
+.project-item:nth-child(3) { animation-delay: 0.3s; }
+.project-item:nth-child(4) { animation-delay: 0.4s; }
+.project-item:nth-child(5) { animation-delay: 0.5s; }
+.project-item:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== PROJECT IMAGE ===== */
+.project-img-side {
+  grid-column: 1 / 8;
+  grid-row: 1;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+  aspect-ratio: 16/10;
+  background: var(--navy-2);
+  border: 1px solid var(--glass-border);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.project-img-side:hover {
+  transform: scale(1.02) translateY(-5px);
+  border-color: var(--cyan);
+  box-shadow: 0 0 40px rgba(0, 255, 235, 0.15), 0 20px 50px -15px rgba(0, 0, 0, 0.6);
+}
+
+.project-img-side svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.project-img-side:hover svg {
+  transform: scale(1.05);
+}
+
+/* ===== PROJECT CONTENT ===== */
+.project-content-side {
+  grid-column: 6 / -1;
+  grid-row: 1;
+  z-index: 10;
+  text-align: right;
+}
+
+.project-item:nth-child(even) .project-img-side {
+  grid-column: 6 / -1;
+}
+
+.project-item:nth-child(even) .project-content-side {
+  grid-column: 1 / 8;
+  text-align: left;
+}
+
+/* ===== PROJECT TAG ===== */
+.project-tag {
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+/* ===== PROJECT NAME ===== */
+.project-name {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+/* ===== PROJECT DESC ===== */
+.project-desc {
+  background: var(--glass);
+  padding: 1.5rem;
+  border-radius: 8px;
+  color: var(--silver-dim);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--glass-border);
+  margin-bottom: 1.2rem;
+  backdrop-filter: blur(8px);
+  transition: all 0.4s ease;
+}
+
+.project-desc:hover {
+  border-color: var(--cyan);
+  box-shadow: 0 0 30px rgba(0, 255, 235, 0.05);
+}
+
+/* ===== TECH TAGS ===== */
+.project-tech {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+  margin-bottom: 1.2rem;
+  color: var(--silver);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+}
+
+.project-item:nth-child(even) .project-tech {
+  justify-content: flex-start;
+}
+
+.tech-tag {
+  padding: 4px 14px;
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  background: rgba(0, 255, 235, 0.03);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: var(--silver);
+  list-style: none;
+}
+
+.tech-tag:hover {
+  color: var(--cyan);
+  border-color: var(--cyan);
+  background: rgba(0, 255, 235, 0.08);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 25px rgba(0, 255, 235, 0.2);
+}
+
+/* ===== PROJECT LINKS ===== */
+.project-links {
+  display: flex;
+  gap: 18px;
+  justify-content: flex-end;
+  font-size: 1.2rem;
+}
+
+.project-item:nth-child(even) .project-links {
+  justify-content: flex-start;
+}
+
+.project-links a {
+  color: var(--silver);
+  transition: all 0.3s ease;
+}
+
+.project-links a:hover {
+  color: var(--cyan);
+  transform: translateY(-3px) scale(1.1);
+  text-shadow: 0 0 20px rgba(0, 255, 235, 0.3);
+}
+
+/* ===== SHOW MORE BUTTON ===== */
+.show-more-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.show-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 2.2rem;
+  border: 1px solid var(--glass-border);
+  color: var(--silver);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--glass);
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+
+.show-more-btn:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(0, 255, 235, 0.08);
+}
+
+.show-more-btn i {
+  transition: transform 0.35s ease;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .project-img-side {
+    grid-column: 1 / -1 !important;
+    opacity: 0.12;
+  }
+  
+  .project-img-side svg {
+    filter: blur(2px);
+  }
+  
+  .project-content-side {
+    grid-column: 1 / -1 !important;
+    text-align: left !important;
+    padding: 2rem 1rem;
+  }
+  
+  .project-tech,
+  .project-links {
+    justify-content: flex-start !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .projects-list {
+    gap: 50px;
+  }
+  
+  .project-name {
+    font-size: 1.2rem;
+  }
+  
+  .project-desc {
+    font-size: 0.8rem;
+    padding: 1rem;
+  }
+  
+  .project-tech {
+    font-size: 0.6rem;
+    gap: 8px;
+  }
+  
+  .tech-tag {
+    padding: 3px 10px;
+    font-size: 0.6rem;
+  }
+  
+  .project-img-side {
+    opacity: 0.08;
+  }
+}

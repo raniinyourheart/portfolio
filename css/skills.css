@@ -1,0 +1,235 @@
+/* ===== SKILLS SECTION ===== */
+#skills {
+  width: 100%;
+  padding: 60px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.skills-section {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--cyan);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.section-label::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--cyan);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 2.5rem;
+  color: var(--white);
+}
+
+.section-title span {
+  color: var(--cyan);
+}
+
+/* ===== CATEGORY GROUP ===== */
+.category-group {
+  margin-bottom: 50px;
+  transition: all 0.5s ease;
+}
+
+.category-group.hidden {
+  display: none !important;
+}
+
+.category-group.visible {
+  display: block !important;
+  animation: slideDown 0.5s ease forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.category-group h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.3rem;
+}
+
+.category-group .desc {
+  max-width: 600px;
+  margin-bottom: 16px;
+  color: var(--silver-dim);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ===== CONVEYOR BELT / MARQUEE ===== */
+.marquee {
+  display: flex;
+  gap: 16px;
+  overflow: hidden;
+  padding: 16px 0;
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+.marquee-content {
+  display: flex;
+  gap: 16px;
+  animation: scroll 25s linear infinite;
+}
+
+.marquee:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ===== TECH CARD ===== */
+.tech-card {
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  padding: 18px 22px;
+  border-radius: 12px;
+  min-width: 100px;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: 0.3s ease;
+  cursor: default;
+  flex-shrink: 0;
+}
+
+.tech-card i {
+  font-size: 1.8rem;
+  color: var(--cyan);
+}
+
+.tech-card .skill-name {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--silver);
+  text-align: center;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+.tech-card:hover {
+  border-color: var(--cyan);
+  box-shadow: 0 0 25px rgba(0, 255, 235, 0.12);
+  transform: translateY(-4px);
+}
+
+/* ===== SHOW MORE BUTTON ===== */
+.show-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 2rem;
+  margin-top: 20px;
+  border: 1px solid var(--glass-border);
+  color: var(--silver);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--glass);
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.35s;
+}
+
+.show-more-btn:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(0, 255, 235, 0.08);
+}
+
+.show-more-btn i {
+  transition: transform 0.35s;
+}
+
+.show-more-btn.expanded i {
+  transform: rotate(180deg);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  #skills {
+    padding: 40px 10px;
+  }
+  
+  .tech-card {
+    min-width: 80px;
+    min-height: 80px;
+    padding: 14px 16px;
+  }
+  
+  .tech-card i {
+    font-size: 1.4rem;
+  }
+  
+  .tech-card .skill-name {
+    font-size: 0.55rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #skills {
+    padding: 30px 10px;
+  }
+  
+  .tech-card {
+    min-width: 70px;
+    min-height: 70px;
+    padding: 10px 12px;
+  }
+  
+  .tech-card i {
+    font-size: 1.2rem;
+  }
+  
+  .tech-card .skill-name {
+    font-size: 0.5rem;
+  }
+  
+  .show-more-btn {
+    font-size: 0.65rem;
+    padding: 0.5rem 1.5rem;
+  }
+}
