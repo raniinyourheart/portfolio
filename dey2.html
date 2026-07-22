@@ -1,229 +1,644 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Competition - Lintang Maharani</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="css/variables.css">
-  <link rel="stylesheet" href="css/certificates.css">
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      background: var(--navy-deep);
-      color: var(--white);
-      font-family: var(--font-body);
-      min-height: 100vh;
-      padding: 2rem;
-    }
-    .back-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--cyan);
-      text-decoration: none;
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      margin-bottom: 2rem;
-      transition: all 0.3s;
-    }
-    .back-btn:hover {
-      transform: translateX(-5px);
-      color: var(--white);
-    }
-    .cert-section {
-      max-width: 1100px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 2rem;
-    }
-    .section-label {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--cyan);
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      margin-bottom: 0.6rem;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-    .section-label::before {
-      content: '';
-      width: 32px;
-      height: 1px;
-      background: var(--cyan);
-    }
-    .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 800;
-      margin-bottom: 1rem;
-      color: var(--white);
-    }
-    .section-title span { color: var(--cyan); }
-    .section-divider {
-      width: 60px;
-      height: 3px;
-      background: linear-gradient(90deg, var(--cyan), transparent);
-      margin-bottom: 3.5rem;
-      border-radius: 2px;
-    }
-    .cert-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-    .cert-card {
-      background: var(--glass);
-      border: 1px solid var(--glass-border);
-      border-radius: 16px;
-      overflow: hidden;
-      backdrop-filter: blur(16px);
-      cursor: pointer;
-      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    .cert-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--cyan-dim);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 30px rgba(0,255,235,0.08);
-    }
-    .cert-banner {
-      height: 110px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .cert-banner-icon {
-      font-size: 3rem;
-      position: relative;
-      z-index: 1;
-      filter: drop-shadow(0 0 16px rgba(0,255,235,0.4));
-    }
-    .cert-banner::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, transparent 60%, var(--navy-2));
-    }
-    .cert-body {
-      padding: 1.4rem;
-    }
-    .cert-issuer-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 0.6rem;
-    }
-    .cert-issuer {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--cyan);
-    }
-    .cert-year {
-      font-family: var(--font-mono);
-      font-size: 0.63rem;
-      color: var(--silver-dim);
-    }
-    .cert-title {
-      font-family: var(--font-display);
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 0.5rem;
-      line-height: 1.3;
-    }
-    .cert-subtitle {
-      font-size: 0.82rem;
-      color: var(--silver-dim);
-      margin-bottom: 1rem;
-    }
-    .cert-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .cert-cat-badge {
-      font-family: var(--font-mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.3rem 0.8rem;
-      border-radius: 100px;
-      background: rgba(0,255,235,0.1);
-      border: 1px solid rgba(0,255,235,0.2);
-      color: var(--cyan);
-    }
-    .cert-view-btn {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.08em;
-      color: var(--cyan-dim);
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-    .cert-card:hover .cert-view-btn { color: var(--cyan); }
-    @media (max-width: 700px) {
-      .cert-grid { grid-template-columns: 1fr; }
-      .cert-section { padding: 1rem; }
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Professional - Lintang Maharani</title>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0b1120;
+            color: #f0f4ff;
+            font-family: 'DM Sans', sans-serif;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .cert-section {
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #64f0e5;
+            text-decoration: none;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+            color: #fff;
+        }
+
+        .section-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            color: #64f0e5;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 32px;
+            height: 1px;
+            background: #64f0e5;
+        }
+
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .section-title span {
+            color: #64f0e5;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #64f0e5, transparent);
+            margin-bottom: 3.5rem;
+            border-radius: 2px;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .cert-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            overflow: hidden;
+            backdrop-filter: blur(12px);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(100, 240, 229, 0.4);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(100, 240, 229, 0.06);
+        }
+
+        .cert-banner {
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+            padding: 0.5rem;
+        }
+
+        .cert-banner-icon {
+            width: auto;
+            height: 100%;
+            max-height: 120px;
+            object-fit: contain;
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 0 20px rgba(100, 240, 229, 0.2));
+            border-radius: 8px;
+        }
+
+        .cert-banner::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 60%, #0b1120);
+        }
+
+        .cert-body {
+            padding: 1.4rem 1.4rem 1.6rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cert-issuer-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.6rem;
+        }
+
+        .cert-issuer {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #64f0e5;
+        }
+
+        .cert-year {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.63rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .cert-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.4rem;
+            line-height: 1.3;
+        }
+
+        .cert-subtitle {
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+
+        .cert-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 0.4rem;
+        }
+
+        .cert-cat-badge {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.9rem;
+            border-radius: 100px;
+            background: rgba(100, 240, 229, 0.08);
+            border: 1px solid rgba(100, 240, 229, 0.15);
+            color: #64f0e5;
+        }
+
+        .cert-view-btn {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.08em;
+            color: rgba(100, 240, 229, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: color 0.3s;
+        }
+
+        .cert-card:hover .cert-view-btn {
+            color: #64f0e5;
+        }
+
+        /* ---- POPUP / MODAL ---- */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            padding: 1.5rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-box {
+            background: #141c2b;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 28px;
+            max-width: 560px;
+            width: 100%;
+            padding: 2rem 1.8rem 1.8rem;
+            position: relative;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8);
+            animation: modalPop 0.3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        @keyframes modalPop {
+            0% {
+                transform: scale(0.92);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 14px;
+            right: 18px;
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            color: #fff;
+        }
+
+        .modal-banner {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.2rem;
+            cursor: pointer;
+        }
+
+        .modal-banner img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.5rem;
+            transition: transform 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .modal-banner img:hover {
+            transform: scale(1.02);
+            border-color: rgba(100, 240, 229, 0.2);
+        }
+
+        .modal-banner-label {
+            text-align: center;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.3);
+            font-family: 'Space Mono', monospace;
+            margin-top: 0.3rem;
+            letter-spacing: 0.1em;
+        }
+
+        .modal-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 0.3rem;
+        }
+
+        .modal-sub {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .modal-detail {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .modal-detail span {
+            display: flex;
+            gap: 0.6rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .modal-detail i {
+            width: 20px;
+            color: #64f0e5;
+        }
+
+        /* ---- FULLSCREEN IMAGE MODAL ---- */
+        .fullscreen-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 2rem;
+        }
+
+        .fullscreen-overlay.active {
+            display: flex;
+        }
+
+        .fullscreen-overlay img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 0 60px rgba(100, 240, 229, 0.1);
+            animation: modalPop 0.3s ease;
+        }
+
+        .fullscreen-close {
+            position: fixed;
+            top: 30px;
+            right: 40px;
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+            z-index: 1001;
+        }
+
+        .fullscreen-close:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 700px) {
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cert-section {
+                padding: 1rem;
+            }
+
+            .modal-box {
+                padding: 1.6rem;
+                max-width: 100%;
+            }
+
+            .cert-banner {
+                height: 160px;
+            }
+
+            .fullscreen-close {
+                top: 20px;
+                right: 20px;
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<div class="cert-section">
-  <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Kembali</a>
-  
-  <div class="section-label">🏆 Competition</div>
-  <h2 class="section-title">Competition <span>Certificates</span></h2>
-  <div class="section-divider"></div>
+    <div class="cert-section">
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back</a>
 
-  <div class="cert-grid">
-    <!-- Sertifikat 1 -->
-    <div class="cert-card">
-      <div class="cert-banner" style="background:linear-gradient(135deg,#1a0d30,#2a1060)">
-        <span class="cert-banner-icon">🥈</span>
-      </div>
-      <div class="cert-body">
-        <div class="cert-issuer-row">
-          <span class="cert-issuer">Kominfo RI</span>
-          <span class="cert-year">2024</span>
+        <div class="section-label"> Professional</div>
+        <h2 class="section-title">Learning <span>Certificate</span></h2>
+        <div class="section-divider"></div>
+
+        <div class="cert-grid">
+            <!-- ===== CARD 1 ===== -->
+            <div class="cert-card" data-modal="modal1">
+                <div class="cert-banner" style="background:linear-gradient(135deg,#1a0d30,#2a1060)">
+                    <img class="cert-banner-icon" src="assets/sertfikat/profeional/berinovasi dengan ai.jpg" alt="AI Innovation Certificate" />
+                </div>
+                <div class="cert-body">
+                    <div class="cert-issuer-row">
+                        <span class="cert-issuer">Yayasan Plan International Indonesia</span>
+                        <span class="cert-year">2025</span>
+                    </div>
+                    <div class="cert-title">AI Innovation & Digital Skills Certification</div>
+                    <div class="cert-subtitle">Training for 15 learning hours</div>
+                    <div class="cert-footer">
+                        <span class="cert-cat-badge">Professional</span>
+                        <span class="cert-view-btn">Details →</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== CARD 2 ===== -->
+            <div class="cert-card" data-modal="modal2">
+                <div class="cert-banner" style="background:linear-gradient(135deg,#0d2218,#1a4a2e)">
+                    <img class="cert-banner-icon" src="assets/sertfikat/profeional/Berkarir di HR dengan Gemini AI.png" alt="HR AI Certificate" />
+                </div>
+                <div class="cert-body">
+                    <div class="cert-issuer-row">
+                        <span class="cert-issuer">IODA Academy</span>
+                        <span class="cert-year">2025</span>
+                    </div>
+                    <div class="cert-title">AI for Human Resources & Recruitment</div>
+                    <div class="cert-subtitle">Completing the 3-hours workshop</div>
+                    <div class="cert-footer">
+                        <span class="cert-cat-badge">Professional</span>
+                        <span class="cert-view-btn">Details →</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== CARD 3 ===== -->
+            <div class="cert-card" data-modal="modal3">
+                <div class="cert-banner" style="background:linear-gradient(135deg,#1a1a2e,#3a1a4a)">
+                    <img class="cert-banner-icon" src="assets/sertfikat/profeional/Product Management Certification.png" alt="Product Management Certificate" />
+                </div>
+                <div class="cert-body">
+                    <div class="cert-issuer-row">
+                        <span class="cert-issuer">Ioda Academy</span>
+                        <span class="cert-year">2026</span>
+                    </div>
+                    <div class="cert-title">Product Strategy & Development</div>
+                    <div class="cert-subtitle">Completed the instructional video course</div>
+                    <div class="cert-footer">
+                        <span class="cert-cat-badge">Professional</span>
+                        <span class="cert-view-btn">Details →</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== CARD 4 ===== -->
+            <div class="cert-card" data-modal="modal4">
+                <div class="cert-banner" style="background:linear-gradient(135deg,#1a1a2e,#3a1a4a)">
+                    <img class="cert-banner-icon" src="assets/sertfikat/profeional/Search Engine Optimization (SEO).png" alt="SEO Certificate" />
+                </div>
+                <div class="cert-body">
+                    <div class="cert-issuer-row">
+                        <span class="cert-issuer">Ioda Academy</span>
+                        <span class="cert-year">2026</span>
+                    </div>
+                    <div class="cert-title">Search Engine Optimization (SEO)</div>
+                    <div class="cert-subtitle">Completed the instructional video course</div>
+                    <div class="cert-footer">
+                        <span class="cert-cat-badge">Professional</span>
+                        <span class="cert-view-btn">Details →</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="cert-title">Juara 2 – National IT Hackathon</div>
-        <div class="cert-subtitle">Kompetisi Tingkat Nasional</div>
-        <div class="cert-footer">
-          <span class="cert-cat-badge">Competition</span>
-          <span class="cert-view-btn">Detail →</span>
-        </div>
-      </div>
     </div>
 
-    <!-- Sertifikat 2 -->
-    <div class="cert-card">
-      <div class="cert-banner" style="background:linear-gradient(135deg,#0d2218,#1a4a2e)">
-        <span class="cert-banner-icon">🏅</span>
-      </div>
-      <div class="cert-body">
-        <div class="cert-issuer-row">
-          <span class="cert-issuer">Universitas</span>
-          <span class="cert-year">2024</span>
+    <!-- ===== MODAL 1 - AI Innovation ===== -->
+    <div class="modal-overlay" id="modal1">
+        <div class="modal-box">
+            <button class="modal-close" data-close="modal1">&times;</button>
+            <div class="modal-banner" onclick="openFullscreen('assets/sertfikat/profeional/berinovasi dengan ai.jpg')">
+                <img src="assets/sertfikat/profeional/berinovasi dengan ai.jpg" alt="AI Innovation Certificate" />
+            </div>
+            <div class="modal-banner-label"> Click image to view fullscreen</div>
+            <div class="modal-title">AI Innovation & Digital Skills</div>
+            <div class="modal-sub">Yayasan Plan International Indonesia · 2025</div>
+            <div class="modal-detail">
+                <span><i class="fas fa-certificate"></i> Program: AI Innovation & Digital Skills</span>
+                <span><i class="fas fa-clock"></i> Duration: 15 Learning Hours</span>
+                <span><i class="fas fa-calendar"></i> Date: December 23rd, 2025</span>
+                <span><i class="fas fa-building"></i> Organizer: Yayasan Plan International Indonesia</span>
+            </div>
         </div>
-        <div class="cert-title">Best Innovation Award</div>
-        <div class="cert-subtitle">PBL Competition</div>
-        <div class="cert-footer">
-          <span class="cert-cat-badge">Competition</span>
-          <span class="cert-view-btn">Detail →</span>
-        </div>
-      </div>
     </div>
-  </div>
-</div>
+
+    <!-- ===== MODAL 2 - HR with Gemini AI ===== -->
+    <div class="modal-overlay" id="modal2">
+        <div class="modal-box">
+            <button class="modal-close" data-close="modal2">&times;</button>
+            <div class="modal-banner" onclick="openFullscreen('assets/sertfikat/profeional/Berkarir di HR dengan Gemini AI.png')">
+                <img src="assets/sertfikat/profeional/Berkarir di HR dengan Gemini AI.png" alt="HR AI Certificate" />
+            </div>
+            <div class="modal-banner-label"> Click image to view fullscreen</div>
+            <div class="modal-title">AI for Human Resources & Recruitment</div>
+            <div class="modal-sub">IODA Academy · 2025</div>
+            <div class="modal-detail">
+                <span><i class="fas fa-certificate"></i> Program: AI for HR & Recruitment</span>
+                <span><i class="fas fa-clock"></i> Duration: 3-Hours Workshop</span>
+                <span><i class="fas fa-calendar"></i> Date: December 23rd, 2025</span>
+                <span><i class="fas fa-building"></i> Organizer: IODA Academy</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MODAL 3 - Product Management ===== -->
+    <div class="modal-overlay" id="modal3">
+        <div class="modal-box">
+            <button class="modal-close" data-close="modal3">&times;</button>
+            <div class="modal-banner" onclick="openFullscreen('assets/sertfikat/profeional/Product Management Certification.png')">
+                <img src="assets/sertfikat/profeional/Product Management Certification.png" alt="Product Management Certificate" />
+            </div>
+            <div class="modal-banner-label"> Click image to view fullscreen</div>
+            <div class="modal-title">Product Strategy & Development</div>
+            <div class="modal-sub">IODA Academy · 2026</div>
+            <div class="modal-detail">
+                <span><i class="fas fa-certificate"></i> Program: Product Management Certification</span>
+                <span><i class="fas fa-clock"></i> Type: Instructional Video Course</span>
+                <span><i class="fas fa-calendar"></i> Date: june 2026</span>
+                <span><i class="fas fa-building"></i> Organizer: IODA Academy</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MODAL 4 - SEO ===== -->
+    <div class="modal-overlay" id="modal4">
+        <div class="modal-box">
+            <button class="modal-close" data-close="modal4">&times;</button>
+            <div class="modal-banner" onclick="openFullscreen('assets/sertfikat/profeional/Search Engine Optimization (SEO).png')">
+                <img src="assets/sertfikat/profeional/Search Engine Optimization (SEO).png" alt="SEO Certificate" />
+            </div>
+            <div class="modal-banner-label"> Click image to view fullscreen</div>
+            <div class="modal-title">Search Engine Optimization (SEO)</div>
+            <div class="modal-sub">IODA Academy · 2026</div>
+            <div class="modal-detail">
+                <span><i class="fas fa-certificate"></i> Program: SEO Certification</span>
+                <span><i class="fas fa-clock"></i> Type: Instructional Video Course</span>
+                <span><i class="fas fa-calendar"></i> Date: june 2026</span>
+                <span><i class="fas fa-building"></i> Organizer: IODA Academy</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FULLSCREEN IMAGE OVERLAY ===== -->
+    <div class="fullscreen-overlay" id="fullscreenOverlay" onclick="closeFullscreen()">
+        <button class="fullscreen-close" onclick="closeFullscreen()">&times;</button>
+        <img id="fullscreenImage" src="" alt="Certificate Fullscreen" />
+    </div>
+
+    <script>
+        // OPEN MODAL when card is clicked
+        document.querySelectorAll('.cert-card[data-modal]').forEach(card => {
+            card.addEventListener('click', function(e) {
+                const modalId = this.dataset.modal;
+                const modal = document.getElementById(modalId);
+                if (modal) modal.classList.add('active');
+            });
+        });
+
+        // CLOSE MODAL with close button
+        document.querySelectorAll('.modal-close').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const modalId = this.dataset.close;
+                const modal = document.getElementById(modalId);
+                if (modal) modal.classList.remove('active');
+            });
+        });
+
+        // CLOSE MODAL by clicking outside
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                }
+            });
+        });
+
+        // FULLSCREEN IMAGE
+        function openFullscreen(imageSrc) {
+            const overlay = document.getElementById('fullscreenOverlay');
+            const img = document.getElementById('fullscreenImage');
+            img.src = imageSrc;
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeFullscreen() {
+            const overlay = document.getElementById('fullscreenOverlay');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close fullscreen with ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeFullscreen();
+                // Close all modals too
+                document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+                    modal.classList.remove('active');
+                });
+            }
+        });
+    </script>
 
 </body>
 </html>
