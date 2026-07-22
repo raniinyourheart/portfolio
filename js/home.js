@@ -3,7 +3,7 @@ function initHome() {
   console.log('🏠 Home section loaded!');
 
   // ======= TYPED ROLE =======
-  const roles = ['Laravel & Vue Dev_', 'Full Stack Developer_', 'UI/UX Enthusiast_', 'AI & ML Explorer_', 'Creative Coder_'];
+  const roles = ['Laravel & Vue Dev_', 'Full Stack Developer_', 'UI/UX Enthusiast_', 'AI & ML Explorer_', 'Creative Coder_', 'Web Developer_'];
   let rIdx = 0, cIdx = 0, del = false;
   const typedEl = document.getElementById('typed-role');
   

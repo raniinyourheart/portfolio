@@ -1,49 +1,18 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About · Lintang Maharani</title>
-  
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  
-  <!-- AOS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-  
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- CSS -->
-  <link rel="stylesheet" href="../css/about.css">
-</head>
-<body>
-
-<div class="noise"></div>
-<div class="orb orb-1"></div>
-<div class="orb orb-2"></div>
-<div class="orb orb-3"></div>
-<canvas id="bg-canvas"></canvas>
-
 <!-- ABOUT SECTION -->
-<section>
+<section id="about-section">
   <div class="section-inner">
     <div data-aos="fade-up">
       <div class="section-label">01. About</div>
       <h2 class="section-title">Tentang <span>Saya</span></h2>
       <div class="section-divider"></div>
     </div>
-
     <div class="about-grid">
-      <!-- text -->
       <div class="about-text" data-aos="fade-right" data-aos-delay="100">
         <p>Halo! Saya <strong>Lintang Maharani</strong>, mahasiswa Teknik Informatika yang passionate dalam membangun produk digital.</p>
         <p>Fokus saya ada di <strong>full-stack development</strong> dan <strong>WEB development</strong> — kode yang bagus bukan hanya soal fungsi, tapi juga pengalaman yang luar biasa.</p>
         <p>Saat tidak coding, saya suka eksplorasi teknologi baru, design system, dan competitive programming.</p>
         <a href="../assets/CV.pdf" class="btn-cv" target="_blank"><i class="fa-solid fa-file-pdf"></i> CV Saya</a>
       </div>
-
-      <!-- image -->
       <div class="about-img-container" data-aos="fade-left" data-aos-delay="200">
         <div class="about-img-frame"></div>
         <div class="about-img">
@@ -51,21 +20,10 @@
         </div>
         <div class="avatar-badge">
           <span class="badge-dot"></span>
-          <!-- ADA TEKS AWAL LANGSUNG DI SINI -->
-          <span class="badge-text" id="badgeText">available for internship</span>
+          <span class="badge-text" id="badgeText"></span>
           <span class="badge-cursor"></span>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- Three.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<!-- AOS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<!-- About JS -->
-<script src="../js/about.js"></script>
-
-</body>
-</html>
