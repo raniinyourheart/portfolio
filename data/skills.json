@@ -1,0 +1,69 @@
+{
+  "categories": [
+    {
+      "id": "frontend",
+      "name": "Frontend Development",
+      "description": "Membangun UI yang interaktif, responsif, dan performant menggunakan teknologi modern.",
+      "skills": [
+        "React.js",
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Vue.js",
+        "Vite.js"
+      ]
+    },
+    {
+      "id": "backend",
+      "name": "Backend Development",
+      "description": "Merancang arsitektur server-side yang robust, scalable, dan aman untuk mendukung aplikasi.",
+      "skills": [
+        "Node.js",
+        "Express",
+        "NestJS",
+        "REST API",
+        "GraphQL",
+        "Laravel"
+      ]
+    },
+    {
+      "id": "database",
+      "name": "Database & Cloud",
+      "description": "Mengelola data dengan efisien dan mendeploy aplikasi di infrastruktur cloud modern.",
+      "skills": [
+        "PostgreSQL",
+        "MongoDB",
+        "Redis",
+        "AWS",
+        "Docker",
+        "MySQL"
+      ]
+    },
+    {
+      "id": "tools",
+      "name": "Tools & Workflow",
+      "description": "Menggunakan best practices modern untuk kolaborasi tim dan delivery yang cepat.",
+      "skills": [
+        "Git/GitHub",
+        "CI/CD",
+        "Agile/Scrum",
+        "Linux",
+        "Figma",
+        "Jira"
+      ]
+    },
+    {
+      "id": "softskills",
+      "name": "Soft Skills",
+      "description": "Kemampuan interpersonal yang mendukung kolaborasi tim dan penyelesaian masalah secara efektif.",
+      "skills": [
+        "Problem Solving",
+        "Continuous Learning",
+        "Team Collaboration",
+        "Leadership",
+        "Communication",
+        "Critical Thinking"
+      ]
+    }
+  ]
+}
